@@ -28,7 +28,7 @@ public class DataBase {
             DRIVER = "com.mysql.jdbc.Driver",
             URL = "jdbc:mysql://localhost:3306/trooprecruiterdata",
             USER = "root",
-            PASSWORD = "23122410Skill";
+            PASSWORD = "toor";
 
     private Connection createLinkToDataBase() throws ClassNotFoundException, SQLException{
         Class.forName(DRIVER);
