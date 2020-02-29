@@ -1,8 +1,12 @@
 //import java.util.ArrayList;
 //import java.util.List;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import java.sql.*;
 import java.util.InputMismatchException;
+import java.util.stream.Collectors;
+
 import troopData.DataBase;
 import troopData.Castle;
 import troopData.Troop;
@@ -13,7 +17,7 @@ public class Main {
     private static DataBase dataBase = new DataBase();
     private static Castle castle = new Castle();
     private static Troop troop = new Troop();
-    //private static List <String> castleList = new ArrayList <String>();
+    private static List<String> dataList = new ArrayList<>();
     private static int userChoice;
 
     public static void main(String[] args) {
@@ -51,10 +55,18 @@ public class Main {
     }
 
     public static void getTroopData() {
-        printData(castle.castleIDToString(), castle.castleNameToString(), castle.toString());
+        printData(castle.IDToString(), castle.nameToString(), castle.toString());
         printMessage("Choose a castle: ", true);
         enterSomeIntegerValue();
-        printData(troop.troopIDToString(), troop.troopNameToString(), troop.toString());
+
+        for(Integer value : dataBase.getDataMap().keySet()) {
+            if(value == userChoice)
+                dataList.add(dataBase.getDataMap().get(value));
+        }
+
+        //dataBase.getDataMap().keySet().stream().filter(value -> value == userChoice).forEach(i -> dataList.add(dataBase.getDataMap().get(i)));
+
+        printData(troop.IDToString(), troop.nameToString(), troop.toString());
         printMessage("Select type of warrior: ", true);
         enterSomeIntegerValue();
         printMessage("Enter the number of troops hired: ", false);

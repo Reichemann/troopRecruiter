@@ -1,11 +1,13 @@
 package troopData;
 
 import java.sql.*;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 public class DataBase {
 
-    private static Connection connection;
+    private static Map <Integer, String> dataMap = new HashMap<>();
 
     private static final String
             DRIVER = "com.mysql.jdbc.Driver",
@@ -24,6 +26,7 @@ public class DataBase {
         } catch (ClassNotFoundException | SQLException exception) {
             System.out.println(exception);
         }
+
         return null;
     }
 
@@ -32,6 +35,7 @@ public class DataBase {
     }
 
     private ResultSet createResultSet(String someClass) throws SQLException {
+        Connection connection;
         connection = getConnection();
         PreparedStatement selectedData = Objects.requireNonNull(connection).prepareStatement(createSelectQuery(someClass));
         return selectedData.executeQuery();
@@ -42,8 +46,13 @@ public class DataBase {
 
         while (result.next()) {
             System.out.println(result.getInt(someID) + ". " + result.getString(someName) + ". ");
+            dataMap.put(result.getInt(someID), result.getString(someName));
         }
 
         result.close();
+    }
+
+    public Map<Integer, String> getDataMap() {
+        return dataMap;
     }
 }

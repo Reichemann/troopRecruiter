@@ -1,19 +1,22 @@
 package troopData;
 
-public class Castle {
+public class Castle extends Item {
 
     //private int castleID;
     //private String castleName;
 
-    public String toString() {
+    @Override
+    public String classNameToString() {
         return "castles";
     }
 
-    public String castleIDToString() {
+    @Override
+    public String IDToString() {
         return "castleID";
     }
 
-    public String castleNameToString() {
+    @Override
+    public String nameToString() {
         return "castleName";
     }
 }

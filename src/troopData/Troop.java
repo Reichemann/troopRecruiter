@@ -1,19 +1,22 @@
 package troopData;
 
-public class Troop {
+public class Troop extends Item {
 
     //private int troopID;
     //private String troopName;
 
-    public String toString() {
+    @Override
+    public String classNameToString() {
         return "troops";
     }
 
-    public String troopIDToString() {
+    @Override
+    public String IDToString() {
         return "troopID";
     }
 
-    public String troopNameToString() {
+    @Override
+    public String nameToString() {
         return "troopName";
     }
 }
