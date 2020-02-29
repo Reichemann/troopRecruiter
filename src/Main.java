@@ -28,7 +28,6 @@ public class Main {
             printMessage("1. Add troops.", true);
             printMessage("2. Show your army.", true);
             printMessage("3. Exit.", true);
-
             printMessage("Your choice: ", false);
             enterSomeIntegerValue();
 
@@ -81,7 +80,7 @@ public class Main {
         try {
             dataBase.showDataBaseData(ID, name, someClass);
         } catch (SQLException exception) {
-            System.out.println(exception);
+            exception.printStackTrace();
         }
     }
 

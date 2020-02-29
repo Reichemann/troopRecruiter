@@ -1,9 +1,9 @@
 package troopData;
 
 import java.sql.*;
+import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
-import java.util.Objects;
 
 public class DataBase {
 
