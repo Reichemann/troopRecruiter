@@ -9,6 +9,21 @@ public class DataBase {
 
     private static Map <Integer, String> dataMap = new HashMap<>();
 
+    public void showDataBaseData(String someID, String someName, String someClass) throws SQLException {
+        ResultSet result = createResultSet(someClass);
+
+        while (result.next()) {
+            System.out.println(result.getInt(someID) + ". " + result.getString(someName) + ". ");
+            dataMap.put(result.getInt(someID), result.getString(someName));
+        }
+
+        result.close();
+    }
+
+    public Map<Integer, String> getDataMap() {
+        return dataMap;
+    }
+
     private static final String
             DRIVER = "com.mysql.jdbc.Driver",
             URL = "jdbc:mysql://localhost:3306/trooprecruiterdata",
@@ -39,20 +54,5 @@ public class DataBase {
         connection = getConnection();
         PreparedStatement selectedData = Objects.requireNonNull(connection).prepareStatement(createSelectQuery(someClass));
         return selectedData.executeQuery();
-    }
-
-    public void showDataBaseData(String someID, String someName, String someClass) throws SQLException {
-        ResultSet result = createResultSet(someClass);
-
-        while (result.next()) {
-            System.out.println(result.getInt(someID) + ". " + result.getString(someName) + ". ");
-            dataMap.put(result.getInt(someID), result.getString(someName));
-        }
-
-        result.close();
-    }
-
-    public Map<Integer, String> getDataMap() {
-        return dataMap;
     }
 }
