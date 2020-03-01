@@ -1,6 +1,6 @@
 package troopData;
 
-public class Troop extends Item {
+public class Troop implements Item {
 
     @Override
     public String classNameToString() {

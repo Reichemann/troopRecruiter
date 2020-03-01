@@ -1,6 +1,6 @@
 package troopData;
 
-public class Castle extends Item {
+public class Castle implements Item {
 
     @Override
     public String classNameToString() {

@@ -30,7 +30,7 @@ public class DataBase {
             USER = "root",
             PASSWORD = "toor";
 
-    private Connection createLinkToDataBase() throws ClassNotFoundException, SQLException{
+    private Connection createLinkToDataBase() throws ClassNotFoundException, SQLException {
         Class.forName(DRIVER);
         return DriverManager.getConnection(URL, USER, PASSWORD);
     }
