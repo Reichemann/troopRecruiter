@@ -1,6 +1,6 @@
 package troopData;
 
-public class Castle implements Item {
+public class Castle extends Item {
 
     @Override
     public String classNameToString() {
@@ -15,5 +15,10 @@ public class Castle implements Item {
     @Override
     public String nameToString() {
         return "castleName";
+    }
+
+    @Override
+    public String toString() {
+        return "castle";
     }
 }

@@ -1,6 +1,6 @@
 package troopData;
 
-public class Troop implements Item {
+public class Troop extends Item {
 
     @Override
     public String classNameToString() {
@@ -15,5 +15,10 @@ public class Troop implements Item {
     @Override
     public String nameToString() {
         return "troopName";
+    }
+
+    @Override
+    public String toString() {
+        return "troop";
     }
 }

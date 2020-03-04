@@ -1,7 +1,8 @@
 package troopData;
 
-public interface Item {
-    String classNameToString();
-    String IDToString();
-    String nameToString();
+public abstract class Item {
+    public abstract String classNameToString();
+    public abstract String IDToString();
+    public abstract String nameToString();
+    public abstract String toString();
 }

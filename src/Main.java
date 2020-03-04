@@ -1,6 +1,7 @@
 import java.util.*;
 import java.sql.*;
 import troopData.DataBase;
+import troopData.Item;
 import troopData.Castle;
 import troopData.Troop;
 
@@ -50,20 +51,24 @@ public class Main {
     }
 
     public static void getTroopData() {
-        printData(castle.IDToString(), castle.nameToString(), castle.classNameToString());
-        printMessage("Choose a castle: ", true);
+        tuneItemData(castle, castleNameDataList);
+        tuneItemData(troop, troopTypeDataList);
+        setNumberOfTroop();
+        printMessage("Done!", true);
+    }
+
+    public static void tuneItemData(Item item, List someList) {
+        printData(item.IDToString(), item.nameToString(), item.classNameToString());
+        printMessage("Choose a " + item.toString() + ": ", false);
         enterSomeIntegerValue();
-        dataBase.getDataMap().keySet().stream().filter(i -> i == userChoice).forEach(j -> castleNameDataList.add(dataBase.getDataMap().get(j)));
+        dataBase.getDataMap().keySet().stream().filter(i -> i == userChoice).forEach(j -> someList.add(dataBase.getDataMap().get(j)));
         dataBase.getDataMap().clear();
-        printData(troop.IDToString(), troop.nameToString(), troop.classNameToString());
-        printMessage("Select type of warrior: ", true);
-        enterSomeIntegerValue();
-        dataBase.getDataMap().keySet().stream().filter(i -> i == userChoice).forEach(j -> troopTypeDataList.add(dataBase.getDataMap().get(j)));
-        dataBase.getDataMap().clear();
+    }
+
+    public static void setNumberOfTroop() {
         printMessage("Enter the number of troops hired: ", false);
         enterSomeIntegerValue();
         troopNumberDataList.add(userChoice);
-        printMessage("Done!", true);
     }
 
     public static void printTroopData() {
