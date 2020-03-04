@@ -58,7 +58,7 @@ public class Main {
     }
 
     public static void tuneItemData(Item item, List someList) {
-        printData(item.IDToString(), item.nameToString(), item.classNameToString());
+        printData(item.IDToString(), item.nameToString(), item.toString());
         printMessage("Choose a " + item.toString() + ": ", false);
         enterSomeIntegerValue();
         dataBase.getDataMap().keySet().stream().filter(i -> i == userChoice).forEach(j -> someList.add(dataBase.getDataMap().get(j)));

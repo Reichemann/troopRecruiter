@@ -52,7 +52,7 @@ public class DataBase {
     private ResultSet createResultSet(String someClass) throws SQLException {
         Connection connection;
         connection = getConnection();
-        PreparedStatement selectedData = Objects.requireNonNull(connection).prepareStatement(createSelectQuery(someClass));
+        PreparedStatement selectedData = Objects.requireNonNull(connection).prepareStatement(createSelectQuery(someClass + "s"));
         return selectedData.executeQuery();
     }
 }

@@ -3,8 +3,8 @@ package troopData;
 public class Castle extends Item {
 
     @Override
-    public String classNameToString() {
-        return "castles";
+    public String toString() {
+        return "castle";
     }
 
     @Override
@@ -15,10 +15,5 @@ public class Castle extends Item {
     @Override
     public String nameToString() {
         return "castleName";
-    }
-
-    @Override
-    public String toString() {
-        return "castle";
     }
 }
