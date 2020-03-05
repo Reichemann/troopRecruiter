@@ -62,7 +62,6 @@ public class Main {
         printMessage("Choose a " + item.toString() + ": ", false);
         enterSomeIntegerValue();
         dataBase.getDataMap().keySet().stream().filter(i -> i == userChoice).forEach(j -> someList.add(dataBase.getDataMap().get(j)));
-        dataBase.getDataMap().clear();
     }
 
     public static void setNumberOfTroop() {
