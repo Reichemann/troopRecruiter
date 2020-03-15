@@ -7,12 +7,12 @@ import java.util.HashMap;
 
 public class DataBase {
 
-    private static Map <Integer, String> dataMap = new HashMap<>();
+    private static Map<Integer, String> dataMap = new HashMap<>();
 
     public void showDataBaseData(String someID, String someName, String someClass) throws SQLException {
         ResultSet result = createResultSet(someClass);
 
-        while (result.next()) {
+        while(result.next()) {
             System.out.println(result.getInt(someID) + ". " + result.getString(someName) + ". ");
             dataMap.put(result.getInt(someID), result.getString(someName));
         }
@@ -38,7 +38,7 @@ public class DataBase {
     private Connection getConnection() {
         try {
             return createLinkToDataBase();
-        } catch (ClassNotFoundException | SQLException exception) {
+        } catch(ClassNotFoundException | SQLException exception) {
             System.out.println(exception);
         }
 
