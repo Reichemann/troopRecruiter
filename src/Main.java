@@ -32,7 +32,7 @@ public class Main {
             printMessage("Your choice: ", false);
             enterSomeIntegerValue();
 
-            switch (userChoice) {
+            switch(userChoice) {
                 case 1:
                     getTroopData();
                     break;
