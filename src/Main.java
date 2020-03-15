@@ -83,7 +83,7 @@ public class Main {
     public static void printData(String ID, String name, String someClass) {
         try {
             dataBase.showDataBaseData(ID, name, someClass);
-        } catch (SQLException exception) {
+        } catch(SQLException exception) {
             exception.printStackTrace();
         }
     }
@@ -91,7 +91,7 @@ public class Main {
     private static void enterSomeIntegerValue() {
         try {
             userChoice = input.nextInt();
-        } catch (InputMismatchException exception) {
+        } catch(InputMismatchException exception) {
             printMessage("Mismatch! Restart the program!", false);
         }
     }
