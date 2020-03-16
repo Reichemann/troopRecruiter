@@ -41,6 +41,8 @@ public class DataBase {
         } catch(ClassNotFoundException | SQLException exception) {
             System.out.println(exception);
         }
+        
+        return null;
     }
 
     private String createSelectQuery(String someClass) {
