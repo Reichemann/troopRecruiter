@@ -36,7 +36,7 @@ public class DataBase {
     }
 
     private Connection getConnection() throws ClassNotFoundException, SQLException {
-            return createLinkToDataBase();
+        return createLinkToDataBase();
     }
 
     private String createSelectQuery(String someClass) {
