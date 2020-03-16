@@ -35,14 +35,8 @@ public class DataBase {
         return DriverManager.getConnection(URL, USER, PASSWORD);
     }
 
-    private Connection getConnection() {
-        try {
+    private Connection getConnection() throws ClassNotFoundException, SQLException {
             return createLinkToDataBase();
-        } catch(ClassNotFoundException | SQLException exception) {
-            System.out.println(exception);
-        }
-
-        return null;
     }
 
     private String createSelectQuery(String someClass) {
