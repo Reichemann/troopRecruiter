@@ -1,5 +1,5 @@
 # troopRecruiter
 
-My first Java application with databases.
+<h2>Description:</h2>
 
-You can feel like an army recruiter!
+<h5>My first Java application with databases. You can feel like an army recruiter!</h5>
