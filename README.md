@@ -1,4 +1,4 @@
-# troopRecruiter
+# TroopRecruiter
 
 <h2>Description:</h2>
 
