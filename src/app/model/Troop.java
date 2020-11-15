@@ -1,19 +1,19 @@
-package troopData;
+package app.model;
 
-public class Castle extends Item {
+public class Troop implements Item {
 
     @Override
     public String toString() {
-        return "castle";
+        return "troop";
     }
 
     @Override
     public String IDToString() {
-        return "castleID";
+        return "troopID";
     }
 
     @Override
     public String nameToString() {
-        return "castleName";
+        return "troopName";
     }
 }
