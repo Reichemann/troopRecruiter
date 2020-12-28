@@ -15,7 +15,7 @@ public class Database {
 
     public void showDataBaseData(String someID, String someName, String someClass) throws SQLException {
 
-        ResultSet result = createResultSet(someClass);
+        var result = createResultSet(someClass);
 
         while (result.next()) {
             System.out.println(result.getInt(someID) + ". " + result.getString(someName) + ". ");
@@ -34,9 +34,9 @@ public class Database {
         return DriverManager.getConnection(URL, USER, PASSWORD);
     }
 
-    private ResultSet createResultSet(String someClass) throws SQLException {
-        Connection connection = getConnection();
-        PreparedStatement selectedData = Objects.requireNonNull(connection).prepareStatement(createSelectQuery(someClass + "s"));
+    private ResultSet createResultSet(String table) throws SQLException {
+        var connection = getConnection();
+        var selectedData = Objects.requireNonNull(connection).prepareStatement(createSelectQuery(table + "s"));
         return selectedData.executeQuery();
     }
 
@@ -44,12 +44,12 @@ public class Database {
         try {
             return createLinkToDataBase();
         } catch (ClassNotFoundException | SQLException exception) {
-            System.out.println(exception);
+            exception.printStackTrace();
             return null;
         }
     }
 
-    private String createSelectQuery(String someClass) {
-        return "SELECT * FROM " + someClass;
+    private String createSelectQuery(String table) {
+        return "SELECT * FROM " + table;
     }
 }

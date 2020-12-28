@@ -1,7 +1,10 @@
 package app.model;
 
 public interface Item {
+
     String toString();
-    String IDToString();
+
+    String IdToString();
+
     String nameToString();
 }

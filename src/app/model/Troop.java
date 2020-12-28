@@ -8,8 +8,8 @@ public class Troop implements Item {
     }
 
     @Override
-    public String IDToString() {
-        return "troopID";
+    public String IdToString() {
+        return "troopId";
     }
 
     @Override

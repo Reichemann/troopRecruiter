@@ -8,8 +8,8 @@ public class Castle implements Item {
     }
 
     @Override
-    public String IDToString() {
-        return "castleID";
+    public String IdToString() {
+        return "castleId";
     }
 
     @Override

@@ -22,12 +22,16 @@ public class Main {
 
     private static int userChoice;
 
-    public static void main(String[] args) {
+    public static void main(String... args) {
+        new Main().execute();
+    }
+
+    private void execute() {
         printMessage("Welcome to troop recruiter app!", true);
         printMainData();
     }
 
-    private static void printMainData() {
+    private void printMainData() {
 
         boolean flag = true;
 
@@ -59,45 +63,52 @@ public class Main {
         }
     }
 
-    private static void getTroopData() {
+    private void getTroopData() {
         tuneItemData(castle, castleNameDataList);
         tuneItemData(troop, troopTypeDataList);
         setNumberOfTroop();
         printMessage("Done!", true);
     }
 
-    private static void tuneItemData(Item item, List someList) {
-        printData(item.IDToString(), item.nameToString(), item.toString());
+    private void tuneItemData(Item item, List<String> someList) {
+
+        printData(item.IdToString(), item.nameToString(), item.toString());
+
         printMessage("Choose a " + item.toString() + ": ", false);
+
         enterSomeIntegerValue();
-        dataBase.getDataMap().keySet().stream().filter(i -> i == userChoice).forEach(j -> someList.add(dataBase.getDataMap().get(j)));
+
+        dataBase.getDataMap().keySet().stream()
+                .filter(x -> x == userChoice)
+                .map(x -> dataBase.getDataMap().get(x))
+                .forEach(someList::add);
     }
 
-    private static void setNumberOfTroop() {
+    private void setNumberOfTroop() {
         printMessage("Enter the number of troops hired: ", false);
         enterSomeIntegerValue();
         troopNumberDataList.add(userChoice);
     }
 
-    private static void printTroopData() {
+    private void printTroopData() {
 
-        Iterator<String> castleNameIterator = castleNameDataList.iterator();
-        Iterator<String> troopTypeIterator = troopTypeDataList.iterator();
-        Iterator<Integer> troopNumberIterator = troopNumberDataList.iterator();
+        var castleNameIterator = castleNameDataList.iterator();
+        var troopTypeIterator = troopTypeDataList.iterator();
+        var troopNumberIterator = troopNumberDataList.iterator();
 
         while (castleNameIterator.hasNext() && troopTypeIterator.hasNext() && troopNumberIterator.hasNext())
             printMessage(castleNameIterator.next() + "   " + troopTypeIterator.next() + "   " + troopNumberIterator.next(), true);
     }
 
-    private static void printData(String ID, String name, String someClass) {
+    private void printData(String id, String name, String someClass) {
         try {
-            dataBase.showDataBaseData(ID, name, someClass);
+            dataBase.showDataBaseData(id, name, someClass);
         } catch (SQLException exception) {
             exception.printStackTrace();
         }
     }
 
-    private static void enterSomeIntegerValue() {
+    private void enterSomeIntegerValue() {
         try {
             userChoice = in.nextInt();
         } catch (InputMismatchException exception) {
@@ -105,7 +116,7 @@ public class Main {
         }
     }
 
-    private static void printMessage(String text, boolean withTransition) {
+    private void printMessage(String text, boolean withTransition) {
 
         if (withTransition)
             System.out.println(text);
